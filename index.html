@@ -1,26 +1,54 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="index.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fantasy Adventure</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Karla:wght@400;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
-    <h1>My Shopping List 📝</h1>
-    <div class="container">
-      <ul id="list"></ul>
-      <label for="item-input">Item</label>
-      <input type="text" id="item-input" placeholder="e.g. rice" />
-      <div class="button-container">
-        <button id="add-item-btn">Add</button>
-        <button id="clear-list-btn">Clear</button>
-        <button id="remove-item-btn">Remove</button>
-      </div>
-    </div>
+    <main>
+      <section class="container">
+        <!-- Superpower Form -->
+        <form>
+          <label for="superpower">Choose Your Superpower:</label>
+          <select
+            name="superpower"
+            id="superpower"
+            aria-label="Choose your superpower"
+          >
+            <option value="flight">Flight</option>
+            <option value="invisibility">Invisibility</option>
+            <option value="superstrength">Superstrength</option>
+            <option value="speed">Speed</option>
+            <option value="telekinesis">Telekinesis</option>
+          </select>
+          <button type="submit">Reveal My Superpower</button>
+        </form>
+
+        <!-- Superpower Result Display -->
+        <div class="result-container">
+          <span id="close-btn">&times;</span>
+          <img id="power-image" src="" alt="" />
+          <p id="power-description"></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <!-- Your superpowers object -->
     <script src="index.js"></script>
   </body>
 </html>

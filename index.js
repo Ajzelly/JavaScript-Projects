@@ -1,40 +1,22 @@
-// const emojis = ['🐥','🐯','🐼']
-// console.log(emojis.includes('🐴'))
+document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent form from reloading the page
+  
+    const selectedPower = document.getElementById("superpower").value;
+    const result = superpowers[selectedPower];
+  
+    const img = document.getElementById("power-image");
+    const desc = document.getElementById("power-description");
+    const resultContainer = document.querySelector(".result-container");
 
-const addItemBtn = document.getElementById('add-item-btn')
-const itemInput = document.getElementById('item-input')
-const list = document.getElementById('list')
-const clearListBtn = document.getElementById('clear-list-btn')
-const removeItemBtn = document.getElementById('remove-item-btn')
-
-const shoppingList = []
-    
-addItemBtn.addEventListener('click', function(){
-    if (shoppingList.includes(itemInput.value)){
-        alert('Item already in list')
-    } else {
-        shoppingList.push(itemInput.value)
-        render()        
-        itemInput.value = '' 
+    if (result) {
+        img.src = result.image;
+        img.alt = selectedPower;
+        desc.textContent = result.description;
+        resultContainer.style.display = "block";
     }
-})
-clearListBtn.addEventListener('click', function(){
-    shoppingList.length = 0
-    render()
-})
+});
 
-removeItemBtn.addEventListener('click', function(){
-    shoppingList.pop()
-    render()
-})
-
-function render(){    
-    let html = ''
-    for (let item of shoppingList){
-        html+= `<li class="list-item">${item}</li>`
-    }
-    list.innerHTML = html
-}
-
-render()
-
+// Close functionality
+document.getElementById("close-btn").addEventListener("click", function () {
+    document.querySelector(".result-container").style.display = "none";
+});
